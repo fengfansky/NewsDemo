@@ -28,7 +28,7 @@ public class CommandController {
 
     private BaseCommandProcessor netCommandProcessor;
 
-    CommandController(BaseCommandProcessor netCommandProcessor){
+    CommandController(BaseCommandProcessor netCommandProcessor) {
         this.netCommandProcessor = netCommandProcessor;
     }
 
@@ -40,7 +40,7 @@ public class CommandController {
         }
         String nlp = intent.getStringExtra(KEY_NLP);
 
-        if (TextUtils.isEmpty(nlp)){
+        if (TextUtils.isEmpty(nlp)) {
             Logger.d("nlp invalidate !");
             return;
         }
@@ -51,33 +51,35 @@ public class CommandController {
         String intentEnvent = nlpBean.getIntent();
 
         Log.d(TAG, "result intentEvent : " + intentEnvent + "  slots " + nlpBean.getSlots());
-        switch (intentEnvent){
+        switch (intentEnvent) {
             case COMMAND_PLAY:
             case COMMAND_WELCOME:
-                if (!isStarted){
+                if (!isStarted) {
                     netCommandProcessor.start();
                     isStarted = true;
+                } else {
+                    netCommandProcessor.resume();
                 }
                 break;
             case COMMAND_NEXT:
-                if (isStarted){
+                if (isStarted) {
                     netCommandProcessor.next();
                 }
                 break;
             case COMMAND_PREVIOUS:
-                if (isStarted){
+                if (isStarted) {
                     netCommandProcessor.previous();
                 }
                 break;
             case COMMAND_FINISH:
-                    netCommandProcessor.finish();
+                netCommandProcessor.finish();
                 break;
             case COMMAND_PAUSE:
-                    netCommandProcessor.pause();
+                netCommandProcessor.pause();
                 break;
             case COMMAND_RESUME:
 //                if (isStarted){
-                    netCommandProcessor.resume();
+                netCommandProcessor.resume();
 //                }
                 break;
             default:
