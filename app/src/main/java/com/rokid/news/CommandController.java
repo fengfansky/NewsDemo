@@ -48,10 +48,10 @@ public class CommandController {
         Logger.d("parseIntent Nlp ---> ", nlp);
         NLPBean nlpBean = new Gson().fromJson(nlp, NLPBean.class);
 
-        String intentEnvent = nlpBean.getIntent();
+        String intentEvent = nlpBean.getIntent();
 
-        Log.d(TAG, "result intentEvent : " + intentEnvent + "  slots " + nlpBean.getSlots());
-        switch (intentEnvent) {
+        Log.d(TAG, "result intentEvent : " + intentEvent + "  slots " + nlpBean.getSlots());
+        switch (intentEvent) {
             case COMMAND_PLAY:
             case COMMAND_WELCOME:
                 if (!isStarted) {
@@ -78,12 +78,10 @@ public class CommandController {
                 netCommandProcessor.pause();
                 break;
             case COMMAND_RESUME:
-//                if (isStarted){
                 netCommandProcessor.resume();
-//                }
                 break;
             default:
-                Log.d(TAG, "unKnow command " + intentEnvent);
+                Log.d(TAG, "unKnow command " + intentEvent);
         }
     }
 

@@ -2,6 +2,6 @@
 <manifest xmlns:rokid="http:www.rokid-inc.com" rokid:version="1.0.0">
     <application rokid:isSystem="false">
         <scene rokid:activity="com.rokid.news.MainActivity"
-            rokid:appID="R815FE055478466CA687BFB67F8231B3" />
+            rokid:appID="REE7B5E1BA20482FBE3BB860C0FFD30C" />
     </application>
 </manifest>

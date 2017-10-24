@@ -51,7 +51,6 @@ public abstract class BaseCommandProcessor {
             mRktts.stop(ttsId);
         }
         ttsId = mRktts.speak(currentContent,rkttsCallback);
-        Logger.d(" readContent ttsId : " + ttsId);
         Logger.d(" readContent  speak ttsId : " + ttsId);
     }
 
